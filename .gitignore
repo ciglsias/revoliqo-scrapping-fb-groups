@@ -1,0 +1,18 @@
+#libraries
+/Libraries/NuGet
+
+#packages
+packages/
+
+#unneeded VS files
+*.suo
+*.user
+*.orig
+
+#bin and obj folders
+bin/
+obj/
+Uatcher.Files.zip
+
+#Visual Studio folder
+.vs/
