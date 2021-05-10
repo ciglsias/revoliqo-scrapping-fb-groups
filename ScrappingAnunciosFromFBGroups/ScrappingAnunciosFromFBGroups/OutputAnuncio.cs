@@ -34,7 +34,7 @@ namespace ScrappingAnunciosFromFBGroups
 
             var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(new { Anuncios = list}, Newtonsoft.Json.Formatting.Indented);
 
-            File.WriteAllText(filepath, jsonString);
+            File.AppendAllText(filepath, jsonString);
         }
     }
 }
