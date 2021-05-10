@@ -10,12 +10,11 @@ namespace ScrappingAnunciosFromFBGroups
     {
         static void Main(string[] args)
         {
-            //var inputFilePath = @"C:\Users\Carlos\Desktop\Scraping FB Groups\Saving Page\(16) Todo en camaguey _ Grupos _ Facebook.html";
-            var inputFilePath = @"C:\Users\Carlos\Desktop\Scraping FB Groups\SelectAllCopyPaste\text.txt";
+            var inputFilePath = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 10\Input\input11.txt";
             
             var anunciosParsed = Parser.Parse(inputFilePath);
 
-            var outputFilePath = "output.txt";
+            var outputFilePath = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 10\Output\output11.txt";
 
             OutputAnuncio.Output(anunciosParsed, outputFilePath);
         }
