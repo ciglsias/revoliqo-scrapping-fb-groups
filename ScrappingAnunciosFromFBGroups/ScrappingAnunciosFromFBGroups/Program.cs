@@ -10,6 +10,14 @@ namespace ScrappingAnunciosFromFBGroups
     {
         static void Main(string[] args)
         {
+            //var inputFilePath = @"C:\Users\Carlos\Desktop\Scraping FB Groups\Saving Page\(16) Todo en camaguey _ Grupos _ Facebook.html";
+            var inputFilePath = @"C:\Users\Carlos\Desktop\Scraping FB Groups\SelectAllCopyPaste\text.txt";
+            
+            var anunciosParsed = Parser.Parse(inputFilePath);
+
+            var outputFilePath = "output.txt";
+
+            OutputAnuncio.Output(anunciosParsed, outputFilePath);
         }
     }
 }
