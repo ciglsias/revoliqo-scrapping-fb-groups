@@ -15,8 +15,6 @@ namespace UploadingAnuncios
 
         public string Titulo { get; set; }
 
-        public int Seccion { get; set; }
-
         public int Categoria { get; set; }
 
         public static AnuncioManual[] Load(string filepath)
