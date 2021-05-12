@@ -10,11 +10,11 @@ namespace ScrappingAnunciosFromFBGroups
     {
         static void Main(string[] args)
         {
-            var inputFilePath = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 10\Input\input11.txt";
+            var inputFilePath = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 12\Input\input2.txt";
             
             var anunciosParsed = Parser.Parse(inputFilePath);
 
-            var outputFilePath = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 10\Output\output11.txt";
+            var outputFilePath = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 12\Output\output2.txt";
 
             OutputAnuncio.Output(anunciosParsed, outputFilePath);
         }
