@@ -10,43 +10,44 @@ namespace UploadingAnuncios
         {
             Console.WriteLine("Starting Uploading");
 
-            for (int i = 1; i < 12; i++)
+            var inputFile = @"D:\Projects\xRevolico\Scrapping Anuncios from FB\Mayo 12\Output\output2.txt";
+
+            var anuncios = AnuncioManual.Load(inputFile);
+
+            var context = new RevContext();
+
+            var count = 0;
+
+            foreach (var anuncioManual in anuncios)
             {
-                var inputFile = $"D:\\Projects\\xRevolico\\Scrapping Anuncios from FB\\Mayo 10\\Output\\output{i}.txt";
-
-                var anuncios = AnuncioManual.Load(inputFile);
-
-                var context = new RevContext();
-
-                foreach (var anuncioManual in anuncios)
+                if (anuncioManual.Categoria > 10000 || string.IsNullOrEmpty(anuncioManual.Titulo))
                 {
-                    if (anuncioManual.Seccion > 10000 || anuncioManual.Categoria > 10000 || string.IsNullOrEmpty(anuncioManual.Titulo))
-                    {
-                        continue;
-                    }
-
-                    var now = DateTime.Now;
-
-                    var anuncioCMG = new AnuncioCMG()
-                    {
-                        Titulo = anuncioManual.Titulo,
-                        Descripcion = anuncioManual.Texto,
-                        Telefono = anuncioManual.Telefono,
-                        Seccion = anuncioManual.Seccion,
-                        Categoria = anuncioManual.Categoria,
-                        Precio = 0,
-                        Creado = now,
-                        ModificadoPorUltimaVez = now,
-                        Visitas = 1,
-                    };
-
-                    context.AnunciosCMG.Add(anuncioCMG);
+                    continue;
                 }
 
-                context.SaveChanges();
+                count++;
+
+                var now = DateTime.Now;
+
+                var anuncioCMG = new AnuncioCMG()
+                {
+                    Titulo = anuncioManual.Titulo,
+                    Descripcion = anuncioManual.Texto,
+                    Telefono = anuncioManual.Telefono,
+                    Seccion = anuncioManual.Categoria / 100,
+                    Categoria = anuncioManual.Categoria,
+                    Precio = 0,
+                    Creado = now,
+                    ModificadoPorUltimaVez = now,
+                    Visitas = 1,
+                };
+
+                context.AnunciosCMG.Add(anuncioCMG);
             }
 
-            Console.WriteLine("Done");
+            context.SaveChanges();
+
+            Console.WriteLine($"Done. Agregados: {count}");
         }
     }
 }
