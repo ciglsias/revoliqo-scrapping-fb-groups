@@ -12,15 +12,11 @@ namespace ScrappingAnunciosFromFBGroups
     {
         public string Titulo { get; set; }
 
-        public int Seccion { get; set; }
-
         public int Categoria { get; set; }
 
         public OutputAnuncio()
         {
             Titulo = "";
-
-            Seccion = 99999999;
 
             Categoria = 999999999;
         }
@@ -34,7 +30,7 @@ namespace ScrappingAnunciosFromFBGroups
 
             var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(new { Anuncios = list}, Newtonsoft.Json.Formatting.Indented);
 
-            File.AppendAllText(filepath, jsonString);
+            File.WriteAllText(filepath, jsonString);
         }
     }
 }
